@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { graphql, QueryRenderer } from 'react-relay';
+import Character from './components/Character';
+import CharacterList from './components/CharacterList';
+import env from './RelayEnv';
+
+const query = graphql`query AppQuery {
+  ...CharacterList_query
+}`
+
+interface Props {
+  error: Error | null;
+  props: any;
+}
+
+const renderComponent = ({error, props}: Props) => {
+  console.log('proprs', props)
+  if (error) {
+    return <div>{error.message}</div>;
+  } else if(!props) return <div>Loading...</div>
+  return <CharacterList query={props} />
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <QueryRenderer 
+        query={query}
+        variables={{}} 
+        environment={env as any}
+        render={renderComponent}
+      />
     </div>
   );
 }

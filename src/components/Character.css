@@ -1,0 +1,12 @@
+.characterDetails {
+  border: 1px solid gray;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.characterDetails_image {
+  width: 200px;
+  height: 200px;
+}
