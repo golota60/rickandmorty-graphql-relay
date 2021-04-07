@@ -10,3 +10,14 @@
   width: 200px;
   height: 200px;
 }
+
+.characterDetails_subtitle {
+  font-size: 10px;
+  color: rgb(150, 150, 150);
+  margin: unset;
+}
+
+.characterDetails_name {
+  margin-top: 0.5rem;
+  margin-bottom: unset;
+}

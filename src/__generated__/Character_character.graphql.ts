@@ -5,8 +5,12 @@
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type Character_character = {
+    readonly id: string | null;
     readonly name: string | null;
     readonly image: string | null;
+    readonly created: string | null;
+    readonly species: string | null;
+    readonly gender: string | null;
     readonly " $refType": "Character_character";
 };
 export type Character_character$data = Character_character;
@@ -27,6 +31,13 @@ const node: ReaderFragment = {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "id",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "name",
       "storageKey": null
     },
@@ -36,10 +47,31 @@ const node: ReaderFragment = {
       "kind": "ScalarField",
       "name": "image",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "created",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "species",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "gender",
+      "storageKey": null
     }
   ],
   "type": "Character",
   "abstractKey": null
 };
-(node as any).hash = '5c422f1707006d29887b81c3bc5e8ad4';
+(node as any).hash = '6999dc82cf36ae37e0d32b56aad15986';
 export default node;

@@ -10,6 +10,7 @@ const network = Network.create((operation: RequestParameters, variables: Variabl
     body: JSON.stringify({query: operation.text, variables})
 }).then(async (response) => { 
     const respParsed = await response.json(); 
+    console.log('req')
     return respParsed;
 }))
 

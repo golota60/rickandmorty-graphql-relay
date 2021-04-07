@@ -9,11 +9,15 @@ interface Props {
 
 const Character = ({character}: Props) => {
   const characterName = character.name!;
+  const gender = character.gender!;
+  const species = character.species!;
   const imageUrl = character.image || 'https://via.placeholder.com/200';
   return (
     <div className='characterDetails'>
       <img className='characterDetails_image' src={imageUrl} alt={characterName} />
-      {characterName}
+      <p className='characterDetails_name'>{characterName}</p>
+      <p className='characterDetails_subtitle'>Gender: {gender}</p>
+      <p className='characterDetails_subtitle'>Species: {species}</p>
     </div>
   )
 }
@@ -21,8 +25,12 @@ const Character = ({character}: Props) => {
 export default createFragmentContainer(Character, {
   character: graphql`
     fragment Character_character on Character {
+      id
       name
       image
+      created
+      species
+      gender
     }
   `
 });
